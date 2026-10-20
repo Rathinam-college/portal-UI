@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1414mm"
+   height="250mm"
+   viewBox="0 0 1414 250"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="Rathinam_font_new.svg"
+   inkscape:export-filename="Rathinam_font.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.17914997"
+     inkscape:cx="1978.7891"
+     inkscape:cy="867.98787"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <linearGradient
+       id="swatch30"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#71307e;stop-opacity:1;"
+         offset="0"
+         id="stop30" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#swatch30"
+       id="linearGradient7"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(7.2306992,0,0,7.2306992,-979.4782,-1822.0667)"
+       x1="159.7905"
+       y1="184.77882"
+       x2="1302.37"
+       y2="184.77882" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g1">
+      <path
+         id="path28"
+         style="display:inline;fill:#f29a33;stroke-width:0.955118"
+         d="m 1164.1161,60.060241 c 0,1.11505 0,2.2301 0,3.34507 -7.1112,-4.25972 -14.3226,-8.52978 -22.2532,-11.0922 -10.8593,-3.69947 -22.484,-5.08199 -33.9133,-4.15073 -0.4412,0.0488 -1.2385,0.11599 -1.816,0.17113 -15.9158,1.61603 -31.2699,8.04054 -43.6914,18.10416 -9.8867,7.95124 -17.9136,18.18985 -23.2488,29.70251 -0.3452,0.7587 -0.8262,1.82217 -1.198,2.71206 -6.0572,14.309449 -8.0564,30.320579 -5.5786,45.668749 0.2876,1.80511 0.6453,3.68593 1.0361,5.36815 0.7,3.1136 1.592,6.18278 2.6419,9.1963 0.2234,0.63267 0.5509,1.54452 0.8363,2.27523 2.518,6.57251 5.8628,12.82986 9.9552,18.55722 0.3525,0.48672 0.8849,1.22573 1.3244,1.79687 10.4099,13.86462 25.2434,24.35538 41.8153,29.47115 0.9264,0.29191 2.1546,0.64874 3.2077,0.93336 2.0915,0.55794 4.204,1.03412 6.3308,1.43788 0.4426,0.0781 1.2062,0.21995 1.7825,0.31284 13.7201,2.27864 28.0098,1.0844 41.1283,-3.55527 6.5156,-2.26985 12.7211,-5.38121 18.5546,-9.05219 1.0579,-0.60194 2.5777,-0.12434 2.9774,1.05689 0.3268,0.93139 0,1.93694 0.1084,2.90507 0,3.38413 0,6.76818 0,10.15229 12.1125,0 24.2252,0 36.338,0 0,-56.42673 0,-112.85348 0,-169.280139 -12.1128,0 -24.2255,0 -36.338,0 0,4.65446 0,9.30895 0,13.96336 z m -48.8971,22.15857 c 16.1525,0.0956 32.1105,8.6052 40.851,22.247969 8.8494,13.43551 10.6261,31.35149 4.182,46.14409 -5.8125,13.68913 -18.0643,24.56236 -32.496,28.32671 -10.963,2.99516 -22.9393,1.9389 -33.2532,-2.81034 -10.1611,-4.58116 -18.6916,-12.73365 -23.5628,-22.77526 -5.6981,-11.52857 -6.7331,-25.30905 -2.6162,-37.51121 2.9503,-8.91394 8.578,-16.905519 15.9699,-22.695519 8.7179,-6.92075 19.7602,-10.98641 30.9253,-10.92644 z m -1.0039,24.810809 c -10.5793,0.28213 -20.5006,8.2171 -22.9309,18.54753 -2.5479,9.88623 1.9247,21.18291 10.662,26.51636 8.1005,5.13705 19.3121,4.95473 27.0974,-0.72472 6.9302,-4.88435 11.0442,-13.54151 10.2411,-22.00761 -0.5706,-6.76432 -4.1116,-13.19074 -9.5037,-17.30942 -4.3985,-3.44473 -10.0055,-5.13428 -15.5659,-5.02214 z" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:231.381px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:url(#linearGradient7);stroke-width:7.24205;stroke-dasharray:none"
+         x="-2.9659698"
+         y="214.95906"
+         id="text30"><tspan
+           sodipodi:role="line"
+           id="tspan30"
+           x="-2.9659698"
+           y="214.95906"
+           style="font-size:231.381px;fill:url(#linearGradient7);fill-opacity:1;stroke-width:7.24205">RATHIN</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:233.899px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#71249a;fill-opacity:1;stroke-width:3.60672;stroke-dasharray:none"
+         x="1201.9258"
+         y="216.09532"
+         id="text33"><tspan
+           sodipodi:role="line"
+           id="tspan33"
+           x="1201.9258"
+           y="216.09532"
+           style="font-size:233.899px;fill:#71307e;fill-opacity:1;stroke-width:3.60672">M</tspan></text>
+    </g>
+  </g>
+</svg>

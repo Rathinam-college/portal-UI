@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 793.70081 1122.5197"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="RGU_theme.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showguides="true"
+     inkscape:zoom="1.2"
+     inkscape:cx="532.5"
+     inkscape:cy="733.75"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="104.73688,913.04596"
+       orientation="1,0"
+       id="guide44"
+       inkscape:locked="false" />
+    <sodipodi:guide
+       position="689.0044,894.56298"
+       orientation="1,0"
+       id="guide45"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <linearGradient
+       id="swatch47"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#71307e;stop-opacity:1;"
+         offset="0"
+         id="stop47" />
+    </linearGradient>
+    <linearGradient
+       id="swatch30"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#71307e;stop-opacity:1;"
+         offset="0"
+         id="stop30" />
+    </linearGradient>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath20">
+      <g
+         inkscape:label="Clip"
+         id="use20">
+        <rect
+           style="fill:#f29a33;fill-opacity:1;stroke-width:1.00157;stroke-dasharray:none"
+           id="rect20"
+           width="190.23296"
+           height="133.59872"
+           x="95.84256"
+           y="470.49985" />
+        <ellipse
+           style="fill:#f29a33;fill-opacity:1;stroke-width:1.00157;stroke-dasharray:none"
+           id="ellipse20"
+           cx="301.32321"
+           cy="546.73822"
+           rx="131.42049"
+           ry="125.61184" />
+      </g>
+    </clipPath>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#swatch47"
+       id="linearGradient47"
+       x1="107.99938"
+       y1="277.706"
+       x2="558.09784"
+       y2="277.706"
+       gradientUnits="userSpaceOnUse" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#swatch30"
+       id="linearGradient55"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(3.0576487,0,0,3.0576487,-318.19394,-248.79619)"
+       x1="159.79049"
+       y1="184.77883"
+       x2="1302.37"
+       y2="184.77883" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:262.073px;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke-width:0.982771"
+       x="80.282722"
+       y="234.04405"
+       id="text1"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         x="80.282722"
+         y="234.04405"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:262.073px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.982771"><tspan
+           style="fill:#71307e;fill-opacity:1;stroke-width:0.982771"
+           id="tspan3">R</tspan><tspan
+           style="fill:#2096db;fill-opacity:1;stroke-width:0.982771"
+           id="tspan4">G</tspan><tspan
+           style="fill:#a5cb3a;fill-opacity:1;stroke-width:0.982771"
+           id="tspan5">U</tspan></tspan></text>
+    <rect
+       style="fill:#f29a33;fill-opacity:1;stroke-width:0.994892"
+       id="rect12"
+       width="191.59641"
+       height="22.83424"
+       x="102.76018"
+       y="472.4838" />
+    <rect
+       style="fill:#2096db;fill-opacity:1;stroke-width:1.02568"
+       id="rect12-8"
+       width="203.63828"
+       height="22.83424"
+       x="294.40079"
+       y="472.35126" />
+    <rect
+       style="fill:#a5cb3a;fill-opacity:1;stroke-width:0.99664"
+       id="rect12-8-1"
+       width="192.27127"
+       height="22.83424"
+       x="495.94098"
+       y="472.3418" />
+    <rect
+       style="fill:#f29a33;fill-opacity:1;stroke-width:0.994892"
+       id="rect12-4"
+       width="191.59641"
+       height="22.83424"
+       x="103.49999"
+       y="945.97534" />
+    <rect
+       style="fill:#2096db;fill-opacity:1;stroke-width:1.02568"
+       id="rect12-8-2"
+       width="203.63828"
+       height="22.83424"
+       x="295.14062"
+       y="945.84283" />
+    <rect
+       style="fill:#a5cb3a;fill-opacity:1;stroke-width:0.99664"
+       id="rect12-8-1-7"
+       width="192.27127"
+       height="22.83424"
+       x="496.68079"
+       y="945.83337" />
+    <path
+       id="path28"
+       style="display:inline;fill:#f29a33;stroke-width:0.403891"
+       d="m 588.26868,547.09965 c 0,0.47152 0,0.94305 0,1.41454 -3.00712,-1.80132 -6.05658,-3.607 -9.41018,-4.69056 -4.59215,-1.56441 -9.50787,-2.14904 -14.34099,-1.75523 -0.18649,0.0193 -0.52369,0.049 -0.76794,0.0724 -6.73027,0.68336 -13.22302,3.4001 -18.47575,7.65569 -4.18079,3.36236 -7.57511,7.69195 -9.8313,12.56032 -0.14583,0.32084 -0.34931,0.77054 -0.50654,1.14686 -2.56144,6.05102 -3.40675,12.82167 -2.35905,19.31195 0.12157,0.76333 0.27302,1.55868 0.43815,2.27003 0.29605,1.31666 0.67316,2.61452 1.11718,3.88886 0.0944,0.26744 0.23301,0.65311 0.35366,0.9621 1.06475,2.77933 2.47918,5.4254 4.20975,7.84732 0.14898,0.20584 0.37423,0.51832 0.56003,0.75984 4.40202,5.86295 10.67469,10.29917 17.6825,12.46247 0.39166,0.12353 0.91113,0.27445 1.3564,0.39469 0.88442,0.23599 1.77782,0.4373 2.67709,0.60804 0.1873,0.0331 0.51006,0.0931 0.75383,0.13226 5.8018,0.96358 11.84444,0.45855 17.39186,-1.5034 2.75535,-0.95987 5.37949,-2.27557 7.84624,-3.82792 0.44738,-0.2544 1.09005,-0.0526 1.25904,0.44692 0.13814,0.39386 0.003,0.81909 0.0461,1.22848 0,1.43104 0,2.86207 0,4.29312 5.12209,0 10.2442,0 15.36629,0 0,-23.8612 0,-47.72241 0,-71.58358 -5.12209,0 -10.2442,0 -15.36629,0 0,1.96823 0,3.93649 0,5.90469 z m -20.67713,9.37022 c 6.83039,0.0405 13.57854,3.63887 17.27466,9.408 3.74213,5.68146 4.49344,13.25761 1.76852,19.51295 -2.458,5.78873 -7.63894,10.3867 -13.74172,11.97852 -4.63586,1.26657 -9.70029,0.81991 -14.06172,-1.18839 -4.29679,-1.93723 -7.90412,-5.38469 -9.96402,-9.63099 -2.4095,-4.87509 -2.84727,-10.70243 -1.10637,-15.86239 1.24769,-3.76943 3.62747,-7.14882 6.75324,-9.59724 3.68656,-2.92658 8.35602,-4.64586 13.07741,-4.62046 z m -0.42452,10.49176 c -4.47373,0.11931 -8.6691,3.47475 -9.69686,7.84318 -1.07739,4.18059 0.81397,8.95763 4.50865,11.21299 3.42551,2.17231 8.16656,2.09521 11.45874,-0.30646 2.93058,-2.06544 4.67027,-5.72631 4.33063,-9.30637 -0.24141,-2.86043 -1.73866,-5.57797 -4.01881,-7.31962 -1.85997,-1.45669 -4.23103,-2.17116 -6.58235,-2.12372 z" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:97.8446px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:url(#linearGradient55);stroke-width:3.06245;stroke-dasharray:none"
+       x="94.744186"
+       y="612.60175"
+       id="text30"><tspan
+         sodipodi:role="line"
+         id="tspan30"
+         x="94.744186"
+         y="612.60175"
+         style="font-size:97.8446px;fill:url(#linearGradient55);fill-opacity:1;stroke-width:3.06245">RATHIN</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:98.9086px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#71249a;fill-opacity:1;stroke-width:1.52518;stroke-dasharray:none"
+       x="604.25732"
+       y="613.08228"
+       id="text33"><tspan
+         sodipodi:role="line"
+         id="tspan33"
+         x="604.25732"
+         y="613.08228"
+         style="font-size:98.9086px;fill:#71307e;fill-opacity:1;stroke-width:1.52518">M</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:84.3726px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#444444;fill-opacity:0.811671;stroke-width:1.30103;stroke-dasharray:none"
+       x="96.679359"
+       y="330.85825"
+       id="text43"><tspan
+         sodipodi:role="line"
+         id="tspan43"
+         x="96.679359"
+         y="330.85825"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#444444;fill-opacity:0.811671;stroke-width:1.30103">Deemed to be</tspan><tspan
+         sodipodi:role="line"
+         x="96.679359"
+         y="436.32394"
+         id="tspan44"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#444444;fill-opacity:0.811671;stroke-width:1.30103" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:86.788px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#444444;fill-opacity:0.811671;stroke-width:1.33828;stroke-dasharray:none"
+       x="102.62015"
+       y="412.42184"
+       id="text43-8"
+       transform="scale(0.95725082,1.0446583)"><tspan
+         sodipodi:role="line"
+         x="102.62015"
+         y="412.42184"
+         id="tspan44-7"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#444444;fill-opacity:0.811671;stroke-width:1.33828">UNIVERSITY</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:84.3726px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#444444;fill-opacity:0.811671;stroke-width:1.30103;stroke-dasharray:none"
+       x="96.427162"
+       y="785.43671"
+       id="text43-2"><tspan
+         sodipodi:role="line"
+         id="tspan43-3"
+         x="96.427162"
+         y="785.43671"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#444444;fill-opacity:0.811671;stroke-width:1.30103">Deemed to be</tspan><tspan
+         sodipodi:role="line"
+         x="96.427162"
+         y="890.90247"
+         id="tspan44-3"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#444444;fill-opacity:0.811671;stroke-width:1.30103" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:88.999px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#444444;fill-opacity:0.811671;stroke-width:1.37237;stroke-dasharray:none"
+       x="104.80412"
+       y="828.96552"
+       id="text43-8-4"
+       transform="scale(0.93480314,1.0697439)"><tspan
+         sodipodi:role="line"
+         x="104.80412"
+         y="828.96552"
+         id="tspan44-7-1"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';fill:#444444;fill-opacity:0.811671;stroke-width:1.37237">UNIVERSITY</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:97.5034px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#444444;fill-opacity:0.811671;stroke-width:1.50351;stroke-dasharray:none"
+       x="99.196236"
+       y="705.82574"
+       id="text61"><tspan
+         sodipodi:role="line"
+         id="tspan61"
+         x="99.196236"
+         y="705.82574"
+         style="fill:#2096db;fill-opacity:1;stroke-width:1.50351">GLOBAL</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" href="./color_themes/favicon.svg" type="image/svg+xml">
+    <title>RGU Portal</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS v4 via Browser Build -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Tailwind v4 Custom Configuration -->
+    <style type="text/tailwindcss">
+        @theme {
+            --font-sans: 'Outfit', sans-serif;
+            --color-brand-purple: #71307e;
+            --color-brand-blue: #2096db;
+            --color-brand-green: #a5cb3a;
+            --color-brand-orange: #f29a33;
+            --color-brand-gray: rgba(68, 68, 68, 0.81);
+            --color-brand-red: #ef4444;
+        }
+
+        body {
+            background-color: #f8fafc; /* Light clean background */
+            color: #334155;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .bg-blob {
+            position: absolute;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: 0.55; /* Soft vibrant glow */
+            animation: float-blob 12s ease-in-out infinite alternate;
+            border-radius: 50%;
+        }
+        
+        .blob-1 { background-color: var(--color-brand-purple); width: 500px; height: 500px; top: -100px; left: -100px; }
+        .blob-2 { background-color: var(--color-brand-blue); width: 450px; height: 450px; bottom: -100px; right: -50px; animation-delay: -3s; }
+        .blob-3 { background-color: var(--color-brand-green); width: 400px; height: 400px; top: 40%; left: 20%; animation-delay: -6s; }
+        .blob-4 { background-color: var(--color-brand-orange); width: 350px; height: 350px; top: 15%; right: 15%; animation-delay: -9s; }
+
+        @keyframes float-blob {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(40px, 60px) scale(1.1); }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75); /* Light glass */
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08); /* Soft shadow */
+        }
+
+        .hover-lift {
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(31, 38, 135, 0.15);
+        }
+
+        /* -------------------------------------- */
+        /* Cinematic Entrance & Light Flare       */
+        /* -------------------------------------- */
+        @keyframes cinema-entrance {
+            0% {
+                opacity: 0;
+                transform: scale(1.5) translateY(-20px);
+                filter: blur(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+                filter: blur(0px);
+            }
+        }
+
+        .animate-cinema {
+            animation: cinema-entrance 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes sweep-flare {
+            0%, 75% { left: -100%; opacity: 0; }
+            78% { opacity: 1; }
+            85% { left: 100%; opacity: 1; }
+            88% { opacity: 0; }
+            100% { left: 100%; opacity: 0; }
+        }
+
+        .logo-mask-container {
+            -webkit-mask-image: url('./color_themes/Icon.svg');
+            -webkit-mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-image: url('./color_themes/Icon.svg');
+            mask-size: contain;
+            mask-repeat: no-repeat;
+            mask-position: center;
+        }
+
+        .flare-effect {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 150%;
+            background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0) 0%, 
+                rgba(255, 255, 255, 0.9) 50%, 
+                rgba(255, 255, 255, 0) 100%);
+            transform: skewX(-25deg);
+            animation: sweep-flare 7s infinite cubic-bezier(0.4, 0, 0.2, 1);
+            mix-blend-mode: overlay;
+        }
+    </style>
+
+    <!-- Portal Links Configuration -->
+    <script>
+        // ==========================================
+        // ADD OR REMOVE YOUR PORTAL LINKS HERE
+        // ==========================================
+        const portalLinks = [
+            {
+                title: "Water Tracker",
+                description: "Monitor water usage, sustainability metrics, and overall consumption.",
+                url: "/water_tracker/",
+                color: "brand-blue",
+                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S12 3 12 3s-4.5 4.03-4.5 9 2.015 9 4.5 9z"></path>`
+            },
+            {
+                title: "Food Tracker",
+                description: "Track food provisions, manage nutritional data, and minimize waste.",
+                url: "/food_tracker/",
+                color: "brand-orange",
+                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>`
+            },
+            {
+                title: "CCTV Access",
+                description: "View live camera feeds and review historical security footage.",
+                url: "/cctv/",
+                color: "brand-purple",
+                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>`
+            },
+            {
+                title: "Maintenance",
+                description: "Manage maintenance requests and track facility operations.",
+                url: "/maintenance/",
+                color: "brand-red",
+                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>`
+            },
+            {
+                title: "Transport",
+                description: "Manage transportation details and track vehicles.",
+                url: "/transport/",
+                color: "brand-blue",
+                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path>`
+            }
+        ];
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const grid = document.getElementById("links-grid");
+
+            portalLinks.forEach(link => {
+                const colorHexMap = {
+                    'brand-blue': '#2096db',
+                    'brand-orange': '#f29a33',
+                    'brand-green': '#a5cb3a',
+                    'brand-purple': '#71307e',
+                    'brand-red': '#ef4444'
+                };
+                const baseColor = colorHexMap[link.color] || '#444444';
+
+                const cardHTML = `
+                    <a href="${link.url}" class="group block h-full">
+                        <div class="glass-card hover-lift h-full rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden">
+                            <!-- Background Tint on Hover -->
+                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background: radial-gradient(circle at center, ${baseColor}15 0%, transparent 70%);"></div>
+                            
+                            <!-- Icon Container -->
+                            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 bg-white shadow-sm border border-gray-100">
+                                <svg class="w-7 h-7 text-${link.color}" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    ${link.iconSvg}
+                                </svg>
+                            </div>
+                            
+                            <h2 class="text-xl font-semibold mb-2 text-gray-800 relative z-10">${link.title}</h2>
+                            <p class="text-sm text-gray-600 relative z-10">${link.description}</p>
+                        </div>
+                    </a>
+                `;
+                grid.innerHTML += cardHTML;
+            });
+        });
+    </script>
+</head>
+
+<body
+    class="flex flex-col items-center justify-center py-8 px-4 sm:px-6 lg:px-8 text-gray-700 antialiased relative min-h-screen">
+
+    <!-- Colorful Background Blobs -->
+    <div class="bg-blob blob-1"></div>
+    <div class="bg-blob blob-2"></div>
+    <div class="bg-blob blob-3"></div>
+    <div class="bg-blob blob-4"></div>
+
+    <!-- Header Section with Animated Logo -->
+    <header class="flex flex-col items-center mb-10 space-y-4">
+
+        <div class="animate-cinema relative inline-block mx-auto mt-4">
+            <div class="relative w-64 h-64 md:w-72 md:h-72 mx-auto flex justify-center items-center">
+                <!-- Clean Logo without heavy drop-shadows -->
+                <img src="./color_themes/Icon.svg" alt="RGU Logo"
+                    class="w-full h-full object-contain relative z-10 drop-shadow-xl" />
+
+                <!-- Flare Mask Overlay -->
+                <div class="logo-mask-container absolute inset-0 z-20 pointer-events-none overflow-hidden">
+                    <div class="flare-effect"></div>
+                </div>
+            </div>
+        </div>
+
+        <h1
+            class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-purple to-brand-blue text-center tracking-wide pb-1">
+            Central Portal
+        </h1>
+        <p class="text-base md:text-lg max-w-2xl text-center text-gray-600 font-light mt-2">
+            Access and manage all tracking systems securely from one centralized dashboard.
+        </p>
+    </header>
+
+    <!-- Links Grid Section -->
+    <main class="w-full max-w-6xl flex-grow flex items-center justify-center">
+        <!-- Compact 4-column grid on desktop -->
+        <div id="links-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+
+        </div>
+    </main>
+
+    <footer class="mt-12 text-center text-xs font-light text-gray-500">
+        <p>&copy; 2026 RGU Global. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>
