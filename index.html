@@ -135,14 +135,14 @@
             {
                 title: "Water Tracker",
                 description: "Monitor water usage, sustainability metrics, and overall consumption.",
-                url: "/water_tracker/",
+                url: "https://www.rguedu.in/water_tracker",
                 color: "brand-blue",
                 iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S12 3 12 3s-4.5 4.03-4.5 9 2.015 9 4.5 9z"></path>`
             },
             {
                 title: "Food Tracker",
                 description: "Track food provisions, manage nutritional data, and minimize waste.",
-                url: "/food_tracker/",
+                url: "https://www.rguedu.in/food_tracker/",
                 color: "brand-orange",
                 iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>`
             },
@@ -163,9 +163,23 @@
             {
                 title: "Transport",
                 description: "Manage transportation details and track vehicles.",
-                url: "/transport/",
+                url: "https://www.rguedu.in/transport/",
                 color: "brand-blue",
                 iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path>`
+            },
+            {
+                title: "NextUp",
+                description: "Track enterprise tasks, manage team workflows, and monitor progress.",
+                url: "https://www.rguedu.in/nextup",
+                color: "brand-green",
+                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l2 2 4-4"></path>`
+            },
+            {
+                title: "AI Bot",
+                description: "Interactive AI assistant for campus intelligence, queries, and analytics.",
+                url: "https://www.rguedu.in/ai-bot/",
+                color: "brand-purple",
+                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v3m-7 3a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H7a2 2 0 01-2-2V8zm-3 3h3m14 0h3m-13 0h.01m5.99 0h.01M9 15h6"></path>`
             }
         ];
 
@@ -190,7 +204,7 @@
                             
                             <!-- Icon Container -->
                             <div class="w-14 h-14 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 bg-white shadow-sm border border-gray-100">
-                                <svg class="w-7 h-7 text-${link.color}" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="w-7 h-7 text-${link.color}" style="color: ${baseColor};" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     ${link.iconSvg}
                                 </svg>
                             </div>
