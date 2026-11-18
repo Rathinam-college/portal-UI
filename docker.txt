@@ -1,0 +1,15 @@
+gm@gm:~$ docker ps
+CONTAINER ID   IMAGE                            COMMAND                  CREATED        STATUS       PORTS                                                   NAMES
+4b65e7ea9253   foodtracker_frontend:latest      "/docker-entrypoint.…"   2 days ago     Up 2 days    0.0.0.0:8082->80/tcp, [::]:8082->80/tcp                 foodtracker_frontend
+d87878f63eb0   foodtracker_backend:latest       "sh -c 'python manag…"   2 days ago     Up 2 days    0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp             foodtracker_backend
+7fe8de268543   cctv-frontend:latest             "/docker-entrypoint.…"   11 days ago    Up 11 days   0.0.0.0:8083->80/tcp, [::]:8083->80/tcp                 cctv-frontend-prod-container
+461b275d911f   cctv-backend:latest              "gunicorn --bind 0.0…"   11 days ago    Up 11 days   0.0.0.0:5003->5000/tcp, [::]:5003->5000/tcp             cctv-backend-prod-container
+051b5dcab8ad   transporttracker_backend:prod    "gunicorn --bind 0.0…"   12 days ago    Up 12 days   0.0.0.0:8006->8000/tcp, [::]:8006->8000/tcp             transporttracker_backend_prod
+612409286f36   transporttracker_frontend:prod   "/docker-entrypoint.…"   12 days ago    Up 12 days   0.0.0.0:8086->80/tcp, [::]:8086->80/tcp                 transporttracker_frontend_prod
+5feeafc99f0a   powertracker_frontend:prod       "/docker-entrypoint.…"   5 weeks ago    Up 2 weeks   0.0.0.0:8084->80/tcp, [::]:8084->80/tcp                 powertracker_frontend_prod
+006454e59115   maintenance-frontend:latest      "docker-entrypoint.s…"   5 weeks ago    Up 2 weeks   0.0.0.0:8085->8085/tcp, [::]:8085->8085/tcp             maintenance-tracker-prod-frontend-1
+2f8031f4d5a5   maintenance-backend:latest       "python manage.py ru…"   5 weeks ago    Up 2 weeks   0.0.0.0:8005->8005/tcp, [::]:8005->8005/tcp             maintenance-tracker-prod-backend-1
+e79afaf1f478   powertracker_backend:prod        "gunicorn core.wsgi:…"   6 weeks ago    Up 2 weeks   0.0.0.0:8004->8000/tcp, [::]:8004->8000/tcp             powertracker_backend_prod
+389f6ab531c5   rathinam-frontend:prod           "/docker-entrypoint.…"   6 weeks ago    Up 2 weeks   0.0.0.0:8081->80/tcp, [::]:8081->80/tcp                 watertracker-frontend-1
+5dbd3e53f635   rathinam-backend:prod            "sh -c 'python manag…"   2 months ago   Up 2 weeks   8000/tcp, 0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp   watertracker-backend-1
+gm@gm:~$

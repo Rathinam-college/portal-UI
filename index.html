@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <!-- Favicon -->
     <link rel="icon" href="./color_themes/favicon.svg" type="image/svg+xml">
     <title>RGU Portal</title>
@@ -11,268 +11,1098 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS v4 via Browser Build -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        :root {
+            --bg-page: #0a0c16;
+            --text-main: #f2f4ff;
+            --text-muted: #8b92b4;
+            --border-subtle: rgba(255, 255, 255, 0.09);
+            --font-outfit: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --active-color: #1e90d6;
+        }
 
-    <!-- Tailwind v4 Custom Configuration -->
-    <style type="text/tailwindcss">
-        @theme {
-            --font-sans: 'Outfit', sans-serif;
-            --color-brand-purple: #71307e;
-            --color-brand-blue: #2096db;
-            --color-brand-green: #a5cb3a;
-            --color-brand-orange: #f29a33;
-            --color-brand-gray: rgba(68, 68, 68, 0.81);
-            --color-brand-red: #ef4444;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            background-color: #f8fafc; /* Light clean background */
-            color: #334155;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            font-family: var(--font-outfit);
             min-height: 100vh;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Two columns on desktop: minmax(380px, 460px) 1fr, min-height 100vh */
+        .launcher-shell {
+            display: grid;
+            grid-template-columns: minmax(380px, 460px) 1fr;
+            min-height: 100vh;
+            width: 100%;
+            background-color: var(--bg-page);
+        }
+
+        /* -------------------------------------- */
+        /* LEFT PANEL                             */
+        /* -------------------------------------- */
+        .left-panel {
+            padding: 36px 32px;
+            border-right: 1px solid var(--border-subtle);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: #0a0c16;
+            position: relative;
+            z-index: 10;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .left-panel::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .left-panel::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        /* 1. Brand row */
+        .brand-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .rgu-wordmark {
+            font-size: 44px;
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            display: flex;
+            align-items: baseline;
+            user-select: none;
+        }
+
+        .rgu-wordmark .char-r { color: #b66fd6; }
+        .rgu-wordmark .char-g { color: #37a9f0; }
+        .rgu-wordmark .char-u { color: #b5d94a; }
+
+        .brand-divider {
+            width: 2px;
+            height: 38px;
+            background: rgba(255, 255, 255, 0.18);
+            border-radius: 1px;
+            flex-shrink: 0;
+        }
+
+        .brand-subtext {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            line-height: 1.35;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        /* 2 & 3. Heading & Subtitle */
+        .portal-header-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .portal-heading {
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: var(--text-main);
+        }
+
+        .portal-heading .gradient-text {
+            background: linear-gradient(135deg, #b66fd6 0%, #37a9f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .portal-subtitle {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        /* 4. Search input */
+        .search-container {
             position: relative;
         }
 
-        .bg-blob {
+        .search-icon {
             position: absolute;
-            filter: blur(100px);
-            z-index: -1;
-            opacity: 0.55; /* Soft vibrant glow */
-            animation: float-blob 12s ease-in-out infinite alternate;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .search-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 12px 42px 12px 42px;
+            color: var(--text-main);
+            font-family: var(--font-outfit);
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .search-input:focus {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+        }
+
+        .search-input::placeholder {
+            color: rgba(139, 146, 180, 0.65);
+        }
+
+        .search-shortcut-hint {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 6px;
+            padding: 2px 7px;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            pointer-events: none;
+            font-family: monospace;
+        }
+
+        /* 5. Module list */
+        .module-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            list-style: none;
+            flex-grow: 1;
+        }
+
+        .module-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 10px 14px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--text-main);
+            background: transparent;
+            border: 1px solid transparent;
+            transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), 
+                        background-color 0.2s ease, 
+                        border-color 0.2s ease,
+                        box-shadow 0.2s ease;
+            cursor: pointer;
+            outline: none;
+            position: relative;
+        }
+
+        .module-row:focus-visible {
+            box-shadow: 0 0 0 3px var(--row-focus-color, #1e90d6);
+        }
+
+        .module-index {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.05em;
+            width: 22px;
+            flex-shrink: 0;
+        }
+
+        .module-icon-tile {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: transform 0.2s ease;
+        }
+
+        .module-icon-tile svg {
+            width: 24px;
+            height: 24px;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+
+        .module-content-col {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            min-width: 0;
+        }
+
+        .module-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-main);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .module-mobile-desc {
+            display: none;
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.35;
+            margin-top: 3px;
+        }
+
+        .module-arrow {
+            width: 18px;
+            height: 18px;
+            opacity: 0;
+            transform: translateX(-4px);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            color: var(--text-main);
+            flex-shrink: 0;
+        }
+
+        /* Active Row state */
+        .module-row.active {
+            transform: translateX(4px);
+        }
+
+        .module-row.active .module-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .module-row.active .module-index {
+            color: var(--text-main);
+        }
+
+        /* Empty search state */
+        .no-matches {
+            padding: 32px 16px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px dashed var(--border-subtle);
+            border-radius: 14px;
+            margin-top: 8px;
+        }
+
+        /* 6. Footer */
+        .left-footer {
+            margin-top: auto;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 12px;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        .footer-copyright {
+            white-space: nowrap;
+        }
+
+        .keyboard-hints {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            color: var(--text-muted);
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
+        .keyboard-hints kbd {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 4px;
+            padding: 1px 5px;
+            font-family: inherit;
+            font-size: 10px;
+        }
+
+        /* -------------------------------------- */
+        /* RIGHT PANEL                            */
+        /* -------------------------------------- */
+        .right-panel {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            background: #0a0c16;
+            position: relative;
+        }
+
+        /* Dual-layer cross-fading glow for 0.5s transition */
+        .glow-layer {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            z-index: 1;
+        }
+
+        .glow-layer-a { opacity: 1; }
+        .glow-layer-b { opacity: 0; }
+
+        /* Concentric decorative rings */
+        .concentric-rings {
+            position: absolute;
+            right: -240px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 860px;
+            height: 860px;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .concentric-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             border-radius: 50%;
-        }
-        
-        .blob-1 { background-color: var(--color-brand-purple); width: 500px; height: 500px; top: -100px; left: -100px; }
-        .blob-2 { background-color: var(--color-brand-blue); width: 450px; height: 450px; bottom: -100px; right: -50px; animation-delay: -3s; }
-        .blob-3 { background-color: var(--color-brand-green); width: 400px; height: 400px; top: 40%; left: 20%; animation-delay: -6s; }
-        .blob-4 { background-color: var(--color-brand-orange); width: 350px; height: 350px; top: 15%; right: 15%; animation-delay: -9s; }
-
-        @keyframes float-blob {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(40px, 60px) scale(1.1); }
+            border: 1px solid rgba(255, 255, 255, 0.045);
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.75); /* Light glass */
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.08); /* Soft shadow */
+        .ring-1 { width: 420px; height: 420px; }
+        .ring-2 { width: 640px; height: 640px; }
+        .ring-3 { width: 860px; height: 860px; }
+
+        /* Preview container */
+        .preview-container {
+            max-width: 520px;
+            width: 100%;
+            position: relative;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
-        .hover-lift {
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), border 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .hover-lift:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(31, 38, 135, 0.15);
-        }
-
-        /* -------------------------------------- */
-        /* Cinematic Entrance & Light Flare       */
-        /* -------------------------------------- */
-        @keyframes cinema-entrance {
+        /* Re-animation on module change (0.45s fade + 14px slide up) */
+        @keyframes previewSlideFade {
             0% {
                 opacity: 0;
-                transform: scale(1.5) translateY(-20px);
-                filter: blur(10px);
+                transform: translateY(14px);
             }
             100% {
                 opacity: 1;
-                transform: scale(1) translateY(0);
-                filter: blur(0px);
+                transform: translateY(0);
             }
         }
 
-        .animate-cinema {
-            animation: cinema-entrance 2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        .preview-animate {
+            animation: previewSlideFade 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
-        @keyframes sweep-flare {
-            0%, 75% { left: -100%; opacity: 0; }
-            78% { opacity: 1; }
-            85% { left: 100%; opacity: 1; }
-            88% { opacity: 0; }
-            100% { left: 100%; opacity: 0; }
+        /* 116px glass icon tile (34px radius) */
+        .preview-glass-tile {
+            width: 116px;
+            height: 116px;
+            border-radius: 34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 28px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .logo-mask-container {
-            -webkit-mask-image: url('./color_themes/Icon.svg');
-            -webkit-mask-size: contain;
-            -webkit-mask-repeat: no-repeat;
-            -webkit-mask-position: center;
-            mask-image: url('./color_themes/Icon.svg');
-            mask-size: contain;
-            mask-repeat: no-repeat;
-            mask-position: center;
+        .preview-glass-tile svg {
+            width: 56px;
+            height: 56px;
+            color: #ffffff;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
         }
 
-        .flare-effect {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 150%;
-            background: linear-gradient(90deg, 
-                rgba(255, 255, 255, 0) 0%, 
-                rgba(255, 255, 255, 0.9) 50%, 
-                rgba(255, 255, 255, 0) 100%);
-            transform: skewX(-25deg);
-            animation: sweep-flare 7s infinite cubic-bezier(0.4, 0, 0.2, 1);
-            mix-blend-mode: overlay;
+        /* Counter "03 / 08" */
+        .preview-counter {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            margin-bottom: 8px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Module Name heading clamp 40px to 64px */
+        .preview-title {
+            font-size: clamp(40px, 4.5vw, 64px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            color: var(--text-main);
+            margin-bottom: 16px;
+        }
+
+        /* Module description */
+        .preview-desc {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #c7cce6;
+            margin-bottom: 32px;
+            max-width: 480px;
+        }
+
+        /* White "Open module →" button */
+        .preview-open-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffffff;
+            color: #0a0c16;
+            border-radius: 14px;
+            padding: 14px 30px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+            outline: none;
+        }
+
+        .preview-open-btn svg {
+            width: 18px;
+            height: 18px;
+            stroke-width: 2.2;
+            transition: transform 0.2s ease;
+        }
+
+        .preview-open-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .preview-open-btn:hover svg {
+            transform: translateX(3px);
+        }
+
+        .preview-open-btn:focus-visible {
+            box-shadow: 0 0 0 3px #ffffff, 0 0 0 6px rgba(255, 255, 255, 0.3);
+        }
+
+        /* -------------------------------------- */
+        /* RESPONSIVE (max-width 900px)           */
+        /* -------------------------------------- */
+        @media (max-width: 900px) {
+            .launcher-shell {
+                grid-template-columns: 1fr;
+            }
+
+            .left-panel {
+                padding: max(24px, env(safe-area-inset-top)) 20px max(24px, env(safe-area-inset-bottom)) 20px;
+                border-right: none;
+                height: auto;
+                min-height: 100vh;
+            }
+
+            .right-panel {
+                display: none !important;
+            }
+
+            .module-mobile-desc {
+                display: block;
+            }
+
+            .module-arrow {
+                opacity: 1 !important;
+                transform: translateX(0) !important;
+            }
+
+            .module-row.active {
+                transform: none !important;
+            }
+
+            .left-footer {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+
+        /* -------------------------------------- */
+        /* ACCESSIBILITY: Reduced Motion          */
+        /* -------------------------------------- */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+
+            .preview-animate {
+                animation: none !important;
+            }
+
+            .module-row.active {
+                transform: none !important;
+            }
         }
     </style>
+</head>
 
-    <!-- Portal Links Configuration -->
+<body>
+    <!-- Main Launcher Root (Rendered by PortalShell) -->
+    <div id="portal-root"></div>
+
+    <!-- Portal Links Configuration (Dynamic Source of Truth) -->
     <script>
         // ==========================================
-        // ADD OR REMOVE YOUR PORTAL LINKS HERE
+        // DYNAMIC MODULES CONFIGURATION
+        // Any module added/removed here updates the launcher automatically.
         // ==========================================
         const portalLinks = [
             {
                 title: "Water Tracker",
                 description: "Monitor water usage, sustainability metrics, and overall consumption.",
                 url: "https://www.rguedu.in/water_tracker",
-                color: "brand-blue",
-                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S12 3 12 3s-4.5 4.03-4.5 9 2.015 9 4.5 9z"></path>`
+                color: "#1e90d6",
+                iconSvg: `<path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>`
             },
             {
                 title: "Food Tracker",
                 description: "Track food provisions, manage nutritional data, and minimize waste.",
                 url: "https://www.rguedu.in/food_tracker/",
-                color: "brand-orange",
-                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>`
+                color: "#f39c2d",
+                iconSvg: `<circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>`
             },
             {
                 title: "CCTV Access",
                 description: "View live camera feeds and review historical security footage.",
                 url: "https://www.rguedu.in/cctv/",
-                color: "brand-purple",
-                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path>`
+                color: "#b66fd6",
+                iconSvg: `<polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>`
             },
             {
                 title: "Maintenance",
                 description: "Manage maintenance requests and track facility operations.",
                 url: "https://www.rguedu.in/maintenance/#dashboard",
-                color: "brand-red",
-                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>`
+                color: "#ef4444",
+                iconSvg: `<path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>`
             },
             {
                 title: "Transport",
                 description: "Manage transportation details and track vehicles.",
                 url: "https://www.rguedu.in/transport/",
-                color: "brand-blue",
-                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0"></path>`
+                color: "#37a9f0",
+                iconSvg: `<rect x="1" y="3" width="15" height="13" rx="1"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>`
             },
             {
                 title: "NextUp",
                 description: "Track enterprise tasks, manage team workflows, and monitor progress.",
                 url: "https://www.rguedu.in/nextup",
-                color: "brand-green",
-                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 14l2 2 4-4"></path>`
+                color: "#a4c639",
+                iconSvg: `<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><polyline points="9 13 11 15 15 11"/>`
             },
             {
                 title: "AI Bot",
                 description: "Interactive AI assistant for campus intelligence, queries, and analytics.",
                 url: "https://www.rguedu.in/ai-bot/",
-                color: "brand-purple",
-                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v3m-7 3a2 2 0 012-2h10a2 2 0 012 2v8a2 2 0 01-2 2H7a2 2 0 01-2-2V8zm-3 3h3m14 0h3m-13 0h.01m5.99 0h.01M9 15h6"></path>`
+                color: "#9b5de5",
+                iconSvg: `<rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/><line x1="8" y1="16" x2="8.01" y2="16"/><line x1="16" y1="16" x2="16.01" y2="16"/>`
             },
             {
                 title: "Report",
                 description: "View operations analytics, monthly summaries, and executive reports.",
-                url: "https://rguedu.in/Report/",
-                color: "brand-orange",
-                iconSvg: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>`
+                url: "https://www.rguedu.in/report/",
+                color: "#f39c2d",
+                iconSvg: `<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="8" y2="17"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="16" y1="9" x2="16" y2="17"/>`
             }
         ];
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const grid = document.getElementById("links-grid");
+        // ==========================================
+        // COMPONENT ARCHITECTURE
+        // Split into:
+        // - BrandHeader
+        // - ModuleSearch
+        // - ModuleRow
+        // - ModuleList
+        // - ModulePreview
+        // - PortalShell
+        // ==========================================
 
-            portalLinks.forEach(link => {
-                const colorHexMap = {
-                    'brand-blue': '#2096db',
-                    'brand-orange': '#f29a33',
-                    'brand-green': '#a5cb3a',
-                    'brand-purple': '#71307e',
-                    'brand-red': '#ef4444'
-                };
-                const baseColor = colorHexMap[link.color] || '#444444';
+        /**
+         * Component: BrandHeader
+         * Renders the colored RGU wordmark, deemed university tag, heading, and subtitle.
+         */
+        function BrandHeader() {
+            return `
+                <div class="brand-row">
+                    <div class="rgu-wordmark" aria-label="RGU">
+                        <span class="char-r">R</span><span class="char-g">G</span><span class="char-u">U</span>
+                    </div>
+                    <div class="brand-divider" aria-hidden="true"></div>
+                    <div class="brand-subtext">
+                        <div>DEEMED TO BE</div>
+                        <div>UNIVERSITY</div>
+                    </div>
+                </div>
 
-                const cardHTML = `
-                    <a href="${link.url}" class="group block h-full">
-                        <div class="glass-card hover-lift h-full rounded-2xl p-6 flex flex-col items-center text-center relative overflow-hidden">
-                            <!-- Background Tint on Hover -->
-                            <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background: radial-gradient(circle at center, ${baseColor}15 0%, transparent 70%);"></div>
-                            
-                            <!-- Icon Container -->
-                            <div class="w-14 h-14 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 bg-white shadow-sm border border-gray-100">
-                                <svg class="w-7 h-7 text-${link.color}" style="color: ${baseColor};" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    ${link.iconSvg}
-                                </svg>
-                            </div>
-                            
-                            <h2 class="text-xl font-semibold mb-2 text-gray-800 relative z-10">${link.title}</h2>
-                            <p class="text-sm text-gray-600 relative z-10">${link.description}</p>
-                        </div>
-                    </a>
+                <div class="portal-header-group">
+                    <h1 class="portal-heading">
+                        <span class="gradient-text">Central</span> Portal
+                    </h1>
+                    <p class="portal-subtitle">
+                        Access and manage all tracking systems securely from one centralized dashboard.
+                    </p>
+                </div>
+            `;
+        }
+
+        /**
+         * Component: ModuleSearch
+         * Renders the search input with magnifier icon and shortcut indicator.
+         */
+        function ModuleSearch({ value }) {
+            return `
+                <div class="search-container">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input 
+                        type="text" 
+                        id="module-search-input"
+                        class="search-input" 
+                        placeholder="Search modules…" 
+                        aria-label="Search modules"
+                        autocomplete="off"
+                        spellcheck="false"
+                        value="${value || ''}"
+                    />
+                    <div class="search-shortcut-hint" aria-hidden="true">/</div>
+                </div>
+            `;
+        }
+
+        /**
+         * Component: ModuleRow
+         * Renders an individual module link with active state styling.
+         */
+        function ModuleRow({ module, originalIndex, isActive }) {
+            const formattedIndex = String(originalIndex + 1).padStart(2, '0');
+            const color = module.color || '#1e90d6';
+
+            // Active styling styles: 12% tint background, 45% border, 3px focus ring
+            const activeStyle = isActive 
+                ? `background-color: ${color}1f; border-color: ${color}73; --row-focus-color: ${color};`
+                : `background-color: transparent; border-color: transparent; --row-focus-color: ${color};`;
+
+            return `
+                <a 
+                    href="${module.url}" 
+                    class="module-row ${isActive ? 'active' : ''}" 
+                    data-title="${encodeURIComponent(module.title)}"
+                    style="${activeStyle}"
+                    role="listitem"
+                    tabindex="0"
+                >
+                    <span class="module-index">${formattedIndex}</span>
+                    <div class="module-icon-tile" style="background: ${color}1a; color: ${color}; border: 1px solid ${color}33;">
+                        <svg viewBox="0 0 24 24">
+                            ${module.iconSvg}
+                        </svg>
+                    </div>
+                    <div class="module-content-col">
+                        <span class="module-title">${module.title}</span>
+                        <span class="module-mobile-desc">${module.description}</span>
+                    </div>
+                    <svg class="module-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            `;
+        }
+
+        /**
+         * Component: ModuleList
+         * Renders the vertical list of filtered modules or the empty search state.
+         */
+        function ModuleList({ modules, allModules, activeModule }) {
+            if (modules.length === 0) {
+                return `<div class="no-matches" role="status">No module matches your search.</div>`;
+            }
+
+            return `
+                <div class="module-list" role="list">
+                    ${modules.map(mod => {
+                        const originalIndex = allModules.findIndex(m => m.title === mod.title);
+                        const isActive = activeModule && activeModule.title === mod.title;
+                        return ModuleRow({ module: mod, originalIndex: originalIndex >= 0 ? originalIndex : 0, isActive });
+                    }).join('')}
+                </div>
+            `;
+        }
+
+        /**
+         * Component: ModulePreview
+         * Renders the right panel containing background glow, concentric rings, and animated preview card.
+         */
+        function ModulePreview({ activeModule, originalIndex, totalCount }) {
+            if (!activeModule) {
+                return `
+                    <div class="concentric-rings" aria-hidden="true">
+                        <div class="concentric-ring ring-1"></div>
+                        <div class="concentric-ring ring-2"></div>
+                        <div class="concentric-ring ring-3"></div>
+                    </div>
                 `;
-                grid.innerHTML += cardHTML;
+            }
+
+            const formattedCounter = `${String(originalIndex + 1).padStart(2, '0')} / ${String(totalCount).padStart(2, '0')}`;
+            const color = activeModule.color || '#1e90d6';
+
+            return `
+                <div class="concentric-rings" aria-hidden="true">
+                    <div class="concentric-ring ring-1"></div>
+                    <div class="concentric-ring ring-2"></div>
+                    <div class="concentric-ring ring-3"></div>
+                </div>
+
+                <div class="preview-container preview-animate" id="preview-card">
+                    <!-- Glass icon tile (116px radius 34px) -->
+                    <div class="preview-glass-tile" style="background: linear-gradient(135deg, ${color}40 0%, ${color}15 100%); border: 1px solid ${color}70; box-shadow: 0 20px 40px ${color}35, 0 0 0 1px ${color}25;">
+                        <svg viewBox="0 0 24 24">
+                            ${activeModule.iconSvg}
+                        </svg>
+                    </div>
+
+                    <!-- Counter -->
+                    <div class="preview-counter" style="color: ${color};">
+                        ${formattedCounter}
+                    </div>
+
+                    <!-- Module heading -->
+                    <h2 class="preview-title">
+                        ${activeModule.title}
+                    </h2>
+
+                    <!-- Module description -->
+                    <p class="preview-desc">
+                        ${activeModule.description}
+                    </p>
+
+                    <!-- Open button -->
+                    <a href="${activeModule.url}" class="preview-open-btn" style="--hover-glow: ${color};" onmouseover="this.style.boxShadow='0 12px 28px ${color}66'" onmouseout="this.style.boxShadow='0 4px 14px rgba(0,0,0,0.25)'">
+                        <span>Open module</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </a>
+                </div>
+            `;
+        }
+
+        /**
+         * Component: PortalShell
+         * Master presentation orchestrator managing local UI state (searchQuery, activeModule).
+         */
+        function PortalShell({ modules }) {
+            // Local state
+            let searchQuery = "";
+            let activeModule = modules.length > 0 ? modules[0] : null;
+            let currentGlowLayer = 'a';
+
+            const root = document.getElementById("portal-root");
+
+            // Compute filtered list
+            function getFilteredModules() {
+                const q = searchQuery.trim().toLowerCase();
+                if (!q) return modules;
+                return modules.filter(m => 
+                    m.title.toLowerCase().includes(q) || 
+                    m.description.toLowerCase().includes(q)
+                );
+            }
+
+            // Dual-layer smooth 0.5s gradient transition
+            function updateGlowGradient(color) {
+                const glowA = document.getElementById("glow-layer-a");
+                const glowB = document.getElementById("glow-layer-b");
+                if (!glowA || !glowB) return;
+
+                const gradientValue = `radial-gradient(circle at 75% 35%, ${color}61 0%, transparent 65%), radial-gradient(circle at 25% 75%, ${color}2e 0%, transparent 55%)`;
+
+                if (currentGlowLayer === 'a') {
+                    glowB.style.background = gradientValue;
+                    glowB.style.opacity = '1';
+                    glowA.style.opacity = '0';
+                    currentGlowLayer = 'b';
+                } else {
+                    glowA.style.background = gradientValue;
+                    glowA.style.opacity = '1';
+                    glowB.style.opacity = '0';
+                    currentGlowLayer = 'a';
+                }
+            }
+
+            // Re-render UI
+            function render() {
+                const filtered = getFilteredModules();
+
+                // If active module is not in filtered list, select the first visible
+                if (filtered.length > 0 && (!activeModule || !filtered.some(m => m.title === activeModule.title))) {
+                    activeModule = filtered[0];
+                } else if (filtered.length === 0) {
+                    activeModule = null;
+                }
+
+                const activeOrigIndex = activeModule ? modules.findIndex(m => m.title === activeModule.title) : 0;
+
+                root.innerHTML = `
+                    <div class="launcher-shell">
+                        <!-- Left Panel -->
+                        <aside class="left-panel">
+                            ${BrandHeader()}
+                            ${ModuleSearch({ value: searchQuery })}
+                            <div id="module-list-container">
+                                ${ModuleList({ modules: filtered, allModules: modules, activeModule })}
+                            </div>
+                            <footer class="left-footer">
+                                <span class="footer-copyright">&copy; 2026 RGU Global. All rights reserved.</span>
+                                <div class="keyboard-hints" aria-label="Keyboard navigation">
+                                    <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> move</span>
+                                    <span>&middot;</span>
+                                    <span><kbd>Enter</kbd> open</span>
+                                    <span>&middot;</span>
+                                    <span><kbd>/</kbd> search</span>
+                                </div>
+                            </footer>
+                        </aside>
+
+                        <!-- Right Panel -->
+                        <main class="right-panel" id="right-panel">
+                            <div class="glow-layer glow-layer-a" id="glow-layer-a"></div>
+                            <div class="glow-layer glow-layer-b" id="glow-layer-b"></div>
+                            <div id="preview-slot" style="width: 100%; display: flex; justify-content: center; position: relative; z-index: 3;">
+                                ${ModulePreview({ activeModule, originalIndex: activeOrigIndex, totalCount: modules.length })}
+                            </div>
+                        </main>
+                    </div>
+                `;
+
+                if (activeModule) {
+                    const color = activeModule.color || '#1e90d6';
+                    const glowA = document.getElementById("glow-layer-a");
+                    if (glowA) {
+                        glowA.style.background = `radial-gradient(circle at 75% 35%, ${color}61 0%, transparent 65%), radial-gradient(circle at 25% 75%, ${color}2e 0%, transparent 55%)`;
+                    }
+                }
+
+                bindEvents();
+            }
+
+            // Updates preview card dynamically without destroying input focus
+            function updateActivePreview(newActive) {
+                if (!newActive) return;
+                activeModule = newActive;
+
+                const filtered = getFilteredModules();
+                const activeOrigIndex = modules.findIndex(m => m.title === activeModule.title);
+
+                // Update row classes and styles
+                const rowEls = document.querySelectorAll(".module-row");
+                rowEls.forEach(row => {
+                    const rowTitle = decodeURIComponent(row.getAttribute("data-title"));
+                    const isNowActive = rowTitle === activeModule.title;
+                    const mod = modules.find(m => m.title === rowTitle);
+                    const color = mod ? mod.color : '#1e90d6';
+
+                    if (isNowActive) {
+                        row.classList.add("active");
+                        row.style.backgroundColor = `${color}1f`;
+                        row.style.borderColor = `${color}73`;
+                    } else {
+                        row.classList.remove("active");
+                        row.style.backgroundColor = "transparent";
+                        row.style.borderColor = "transparent";
+                    }
+                });
+
+                // Update Preview content in right panel
+                const previewSlot = document.getElementById("preview-slot");
+                if (previewSlot) {
+                    previewSlot.innerHTML = ModulePreview({
+                        activeModule,
+                        originalIndex: activeOrigIndex,
+                        totalCount: modules.length
+                    });
+                }
+
+                // Smooth glow transition
+                updateGlowGradient(activeModule.color || '#1e90d6');
+            }
+
+            // Bind listeners
+            function bindEvents() {
+                const searchInput = document.getElementById("module-search-input");
+                if (searchInput) {
+                    searchInput.addEventListener("input", (e) => {
+                        searchQuery = e.target.value;
+                        const filtered = getFilteredModules();
+                        if (filtered.length > 0 && (!activeModule || !filtered.some(m => m.title === activeModule.title))) {
+                            activeModule = filtered[0];
+                        } else if (filtered.length === 0) {
+                            activeModule = null;
+                        }
+
+                        // Update list and preview only, keeping search input focused
+                        const listContainer = document.getElementById("module-list-container");
+                        if (listContainer) {
+                            listContainer.innerHTML = ModuleList({ modules: filtered, allModules: modules, activeModule });
+                            bindRowEvents();
+                        }
+
+                        if (activeModule) {
+                            updateActivePreview(activeModule);
+                        } else {
+                            const previewSlot = document.getElementById("preview-slot");
+                            if (previewSlot) {
+                                previewSlot.innerHTML = ModulePreview({ activeModule: null, originalIndex: 0, totalCount: modules.length });
+                            }
+                        }
+                    });
+                }
+
+                bindRowEvents();
+            }
+
+            // Bind row mouse and focus events
+            function bindRowEvents() {
+                const rowEls = document.querySelectorAll(".module-row");
+                rowEls.forEach(row => {
+                    const title = decodeURIComponent(row.getAttribute("data-title"));
+                    const targetMod = modules.find(m => m.title === title);
+
+                    row.addEventListener("mouseenter", () => {
+                        if (targetMod && (!activeModule || activeModule.title !== targetMod.title)) {
+                            updateActivePreview(targetMod);
+                        }
+                    });
+
+                    row.addEventListener("focus", () => {
+                        if (targetMod && (!activeModule || activeModule.title !== targetMod.title)) {
+                            updateActivePreview(targetMod);
+                        }
+                    });
+                });
+            }
+
+            // Global keyboard event handler
+            window.addEventListener("keydown", (e) => {
+                const searchInput = document.getElementById("module-search-input");
+                const isInputFocused = document.activeElement === searchInput;
+
+                // "/" shortcut focuses search box
+                if (e.key === "/" && !isInputFocused) {
+                    e.preventDefault();
+                    if (searchInput) {
+                        searchInput.focus();
+                        searchInput.select();
+                    }
+                    return;
+                }
+
+                // Esc shortcut clears search and unfocuses
+                if (e.key === "Escape" && isInputFocused) {
+                    searchInput.value = "";
+                    searchQuery = "";
+                    render();
+                    searchInput.blur();
+                    return;
+                }
+
+                const filtered = getFilteredModules();
+                if (filtered.length === 0) return;
+
+                const currentIdx = filtered.findIndex(m => activeModule && m.title === activeModule.title);
+
+                // Arrow Down
+                if (e.key === "ArrowDown") {
+                    e.preventDefault();
+                    const nextIdx = currentIdx < filtered.length - 1 ? currentIdx + 1 : 0;
+                    updateActivePreview(filtered[nextIdx]);
+                    scrollActiveRowIntoView(filtered[nextIdx].title);
+                }
+
+                // Arrow Up
+                else if (e.key === "ArrowUp") {
+                    e.preventDefault();
+                    const prevIdx = currentIdx > 0 ? currentIdx - 1 : filtered.length - 1;
+                    updateActivePreview(filtered[prevIdx]);
+                    scrollActiveRowIntoView(filtered[prevIdx].title);
+                }
+
+                // Enter opens active module
+                else if (e.key === "Enter" && !isInputFocused) {
+                    if (activeModule && activeModule.url) {
+                        e.preventDefault();
+                        window.location.href = activeModule.url;
+                    }
+                }
             });
+
+            function scrollActiveRowIntoView(title) {
+                const row = document.querySelector(`.module-row[data-title="${encodeURIComponent(title)}"]`);
+                if (row) {
+                    row.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+                }
+            }
+
+            // Initial render
+            render();
+        }
+
+        // Initialize when DOM is ready
+        document.addEventListener("DOMContentLoaded", () => {
+            PortalShell({ modules: portalLinks });
         });
     </script>
-</head>
-
-<body
-    class="flex flex-col items-center justify-center py-8 px-4 sm:px-6 lg:px-8 text-gray-700 antialiased relative min-h-screen">
-
-    <!-- Colorful Background Blobs -->
-    <div class="bg-blob blob-1"></div>
-    <div class="bg-blob blob-2"></div>
-    <div class="bg-blob blob-3"></div>
-    <div class="bg-blob blob-4"></div>
-
-    <!-- Header Section with Animated Logo -->
-    <header class="flex flex-col items-center mb-10 space-y-4">
-
-        <div class="animate-cinema relative inline-block mx-auto mt-4">
-            <div class="relative w-64 h-64 md:w-72 md:h-72 mx-auto flex justify-center items-center">
-                <!-- Clean Logo without heavy drop-shadows -->
-                <img src="./color_themes/Icon.svg" alt="RGU Logo"
-                    class="w-full h-full object-contain relative z-10 drop-shadow-xl" />
-
-                <!-- Flare Mask Overlay -->
-                <div class="logo-mask-container absolute inset-0 z-20 pointer-events-none overflow-hidden">
-                    <div class="flare-effect"></div>
-                </div>
-            </div>
-        </div>
-
-        <h1
-            class="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-purple to-brand-blue text-center tracking-wide pb-1">
-            Central Portal
-        </h1>
-        <p class="text-base md:text-lg max-w-2xl text-center text-gray-600 font-light mt-2">
-            Access and manage all tracking systems securely from one centralized dashboard.
-        </p>
-    </header>
-
-    <!-- Links Grid Section -->
-    <main class="w-full max-w-6xl flex-grow flex items-center justify-center">
-        <!-- Compact 4-column grid on desktop -->
-        <div id="links-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
-
-        </div>
-    </main>
-
-    <footer class="mt-12 text-center text-xs font-light text-gray-500">
-        <p>&copy; 2026 RGU Global. All rights reserved.</p>
-    </footer>
-
 </body>
 
 </html>

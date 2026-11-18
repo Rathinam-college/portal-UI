@@ -1,0 +1,36 @@
+That is an excellent question! This is a very common issue when hosting multiple web applications on the exact same domain.
+
+Here is exactly why this happens:
+
+The "Shared Drawer" Problem (localStorage)
+When your browser saves your login token, it saves it in a tiny storage space called localStorage. The rule of localStorage is that it is grouped by the domain name, not by the specific URL path.
+
+Because all your apps (/power_tracker, /cctv, /water_tracker, /food_tracker) live on the exact same domain (insight.rathinamtechzone.com), they all share the exact same storage drawer.
+
+Right now, in the frontend code for all these apps, the login token is being saved under the generic name "token".
+
+Here is the exact chain of events:
+
+You log into Water Tracker. The browser saves: token = "water_token_123"
+You open a new tab and log into Power Tracker. The browser overwrites that exact same slot: token = "power_token_999"
+You go back to your Water Tracker tab and click a button. Water Tracker grabs the token from the drawer ("power_token_999") and sends it to the Water Tracker server.
+The Water Tracker server looks at it and says, "I don't recognize this token! You must be a hacker or your session expired!" and logs you out immediately.
+The Fix: Namespacing
+To fix this, the frontend code in each application needs to stop using generic names like "token" or "theme".
+
+Instead, each app needs to save its data with a unique prefix, like this:
+
+Water Tracker: localStorage.setItem('water_token', data.token)
+Power Tracker: localStorage.setItem('power_token', data.token)
+CCTV: localStorage.setItem('cctv_token', data.token)
+This ensures they all have their own designated spot in the drawer and never overwrite each other!
+
+Would you like me to go ahead and fix the Power Tracker frontend code so that it uses uniquely prefixed names (pt_token, pt_theme, etc.) and doesn't conflict with your other apps anymore?	
+
+Done! I have updated the Power Tracker frontend code so that it now uses completely unique storage keys (pt_token, pt_theme, pt_user, pt_editProcurementEntry).
+
+This means Power Tracker now has its own isolated "drawer" and will never conflict with Water Tracker or CCTV ever again.
+
+Since you were just about to run the build command to fix the frontend port issue from earlier anyway, this fix is included perfectly in the same build!
+
+To finalize everything, just run these exact commands on your Local Windows Machine again:
